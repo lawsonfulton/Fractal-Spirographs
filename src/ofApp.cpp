@@ -4,22 +4,22 @@ double armLength(int i);
 double rotSpeed(int i);
 //--------------------------------------------------------------
 void ofApp::setup(){
-	ofSetFrameRate(500);
+    ofSetFrameRate(500);
     ofSetVerticalSync(false);
-	ofBackground(50);
+    ofBackground(50);
     
     //Set up frame buffer for trails
     trailFbo.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA );
     trailFbo.begin();
-	ofClear(255,255,255, 0);
+    ofClear(255,255,255, 0);
     trailFbo.end();
     
     //Pick a center for everything to rotate around
     center.set(ofGetWidth()*0.5, ofGetHeight()*0.5, 0);
-		
-	//initial values
+        
+    //initial values
     armCount = 10;
-	armLengths.resize(armCount);
+    armLengths.resize(armCount);
     armAngles.resize(armCount);
     rotSpeeds.resize(armCount);
     endPoints.resize(armCount);
@@ -33,7 +33,7 @@ void ofApp::setup(){
     
     
     //initialize endpoints
-	updateEndpoints();
+    updateEndpoints();
     saveOldEndpoints();
 }
 
@@ -124,12 +124,12 @@ void ofApp::draw(){
     trailFbo.draw(0,0);
 
     //we translate everything to the center of the circle so it's easier to draw and understand.
-	ofTranslate(center);
-	
-	//draw the yellow circle
-	
+    ofTranslate(center);
+    
+    //draw the yellow circle
+    
     ofSetColor(0, 140, 255);
-	ofSetLineWidth(3);
+    ofSetLineWidth(3);
     
     ofPoint lastEndpoint = ofPoint(0,0,0);
     for(int i = 0; i < armCount; i++) {
@@ -159,12 +159,12 @@ void ofApp::mouseMoved(int x, int y ){
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-	
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-	
+    
 }
 
 //--------------------------------------------------------------
